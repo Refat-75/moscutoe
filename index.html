@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MosCutoe - Search Beyond Limits | Varendra University CSE Search Engine</title>
+<meta name="description" content="MosCutoe (Mosquito The) is a search engine built by Varendra University CSE students. Ask about Varendra University, the CSE department, programming, data structures and more.">
+<meta name="theme-color" content="#3d6bd6">
+<meta name="robots" content="index, follow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MosCutoe">
+<meta property="og:title" content="MosCutoe - Search Beyond Limits">
+<meta property="og:description" content="A search engine built by Varendra University CSE students.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Google Search Console "HTML tag" verification: paste the meta tag Google gives you on the next line -->
+
+<!-- seo:start -->
+<!-- seo:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- background scene -->
+<div class="scene" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3a66d4"/><stop offset=".3" stop-color="#7893ea"/>
+        <stop offset=".55" stop-color="#bfa0ea"/><stop offset=".72" stop-color="#f0a9cb"/><stop offset="1" stop-color="#8f8fe0"/>
+      </linearGradient>
+      <radialGradient id="sun"><stop offset="0" stop-color="#fff4cf"/><stop offset=".22" stop-color="#ffd2b2" stop-opacity=".85"/><stop offset="1" stop-color="#ffb0c8" stop-opacity="0"/></radialGradient>
+      <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b4a2e8" stop-opacity="0"/><stop offset=".18" stop-color="#a99ae6" stop-opacity=".9"/><stop offset="1" stop-color="#3a4aa8"/></linearGradient>
+      <filter id="b6"><feGaussianBlur stdDeviation="6"/></filter>
+      <filter id="b14"><feGaussianBlur stdDeviation="14"/></filter>
+      <filter id="b24"><feGaussianBlur stdDeviation="24"/></filter>
+    </defs>
+    <rect width="1600" height="900" fill="url(#sky)"/>
+    <circle cx="1290" cy="470" r="280" fill="url(#sun)"/>
+    <g filter="url(#b6)">
+      <path d="M0 560 L180 470 L360 540 L560 430 L760 540 L980 450 L1180 530 L1400 470 L1600 540 L1600 700 L0 700Z" fill="#8b8fdc" opacity=".75"/>
+      <path d="M0 610 L220 520 L420 600 L650 500 L880 610 L1120 540 L1350 620 L1600 560 L1600 720 L0 720Z" fill="#5f6bc8" opacity=".85"/>
+      <path d="M0 660 L260 590 L520 650 L800 580 L1060 660 L1340 600 L1600 650 L1600 740 L0 740Z" fill="#3f4fae"/>
+    </g>
+    <rect y="700" width="1600" height="200" fill="url(#lake)"/>
+    <g filter="url(#b14)"><ellipse cx="1290" cy="760" rx="46" ry="110" fill="#ffd6b8" opacity=".6"/></g>
+    <g filter="url(#b24)" fill="#2f6a4a" opacity=".85">
+      <ellipse cx="40" cy="880" rx="260" ry="120"/><ellipse cx="1580" cy="890" rx="280" ry="130"/>
+      <ellipse cx="60" cy="60" rx="200" ry="90" fill="#4d8a4a" opacity=".6"/><ellipse cx="1560" cy="40" rx="220" ry="90" fill="#4d8a4a" opacity=".6"/>
+    </g>
+  </svg>
+</div>
+
+<!-- logo (used many times) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mosq" viewBox="0 0 120 120">
+    <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#52d6ff"/><stop offset="1" stop-color="#9b5cff"/></linearGradient></defs>
+    <circle cx="64" cy="54" r="34" fill="none" stroke="url(#lg)" stroke-width="11"/>
+    <path d="M88 80 L106 102" stroke="url(#lg)" stroke-width="11" stroke-linecap="round"/>
+    <ellipse cx="40" cy="30" rx="28" ry="9" transform="rotate(-30 40 30)" fill="#6fdcff" opacity=".9"/>
+    <ellipse cx="34" cy="46" rx="26" ry="8" transform="rotate(-10 34 46)" fill="#a58bff" opacity=".9"/>
+    <ellipse cx="62" cy="56" rx="22" ry="6" transform="rotate(40 62 56)" fill="#0b2766"/>
+    <circle cx="78" cy="42" r="8" fill="#0b2766"/><circle cx="80" cy="41" r="3" fill="#fff"/>
+    <path d="M84 46 L100 64" stroke="#0b2766" stroke-width="3" stroke-linecap="round"/>
+    <path d="M58 62 L46 86 M64 64 L58 90 M70 60 L72 88" stroke="#0b2766" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  </symbol>
+</svg>
+<svg class="fly f1" aria-hidden="true"><use href="#mosq"/></svg>
+<svg class="fly f2" aria-hidden="true"><use href="#mosq"/></svg>
+
+<noscript>
+  <div class="noscript glass">
+    <h1>MosCutoe - Search Beyond Limits</h1>
+    <p>MosCutoe is a search engine built by Varendra University CSE students. Please turn on JavaScript to search, or
+    <a href="answers.html">browse all answers</a>.</p>
+  </div>
+</noscript>
+
+<!-- ================= LOGIN ================= -->
+<div id="auth" class="auth" hidden>
+  <div class="auth-box">
+    <svg class="auth-logo" viewBox="0 0 120 120" aria-hidden="true"><use href="#mosq"/></svg>
+    <h1 class="brand">Mos<b>Cutoe</b></h1>
+    <p class="tagline">Search Beyond Limits</p>
+
+    <div id="authChoose" class="choose">
+      <button type="button" class="choice" id="guestBtn">
+        <svg viewBox="0 0 24 24" class="ico"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        <strong>Continue as a Guest</strong>
+        <span>Explore without an account</span>
+        <svg viewBox="0 0 24 24" class="arrow"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <button type="button" class="choice alt" id="otpBtn">
+        <svg viewBox="0 0 24 24" class="ico"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/></svg>
+        <strong>Log in with Email / Phone</strong>
+        <span>Get a one-time code (OTP)</span>
+        <svg viewBox="0 0 24 24" class="arrow"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <form id="authContact" class="authform" hidden novalidate>
+      <label for="contactInput">Your email or phone number</label>
+      <input id="contactInput" type="text" inputmode="email" autocomplete="username" placeholder="name@gmail.com  or  01XXXXXXXXX">
+      <p class="err" id="contactErr" role="alert"></p>
+      <button class="btn primary" type="submit">Send OTP</button>
+      <button class="btn ghost" type="button" data-back>Back</button>
+    </form>
+
+    <form id="authVerify" class="authform" hidden novalidate>
+      <p class="sent">We sent a 6-digit code to <b id="sentTo"></b></p>
+      <p class="demo" id="demoBox"></p>
+      <label for="otpInput">Enter OTP</label>
+      <input id="otpInput" class="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="------">
+      <p class="err" id="otpErr" role="alert"></p>
+      <button class="btn primary" type="submit">Verify &amp; Log in</button>
+      <button class="btn ghost" type="button" id="resendBtn">Resend OTP</button>
+      <button class="btn ghost" type="button" data-back>Change email / phone</button>
+    </form>
+
+    <p class="privacy"><span></span>Your privacy matters<span></span></p>
+    <p class="browse"><a href="answers.html">Browse all answers</a></p>
+  </div>
+</div>
+
+<!-- ================= APP ================= -->
+<div id="app" hidden>
+  <div class="topright">
+    <div class="pill glass-lite">
+      <button class="avatar" id="avatarBtn" aria-label="Account"><span id="avatarText">G</span></button>
+      <button class="gridbtn" id="gridBtn" aria-label="Library" title="Library">
+        <svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="5" cy="5" r="1.8"/><circle cx="12" cy="5" r="1.8"/><circle cx="19" cy="5" r="1.8"/><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/><circle cx="5" cy="19" r="1.8"/><circle cx="12" cy="19" r="1.8"/><circle cx="19" cy="19" r="1.8"/></g></svg>
+      </button>
+    </div>
+    <button class="roundbtn glass-lite" id="menuBtn" aria-label="Menu" aria-haspopup="true">
+      <svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></g></svg>
+    </button>
+    <div class="menu glass" id="menu" hidden role="menu">
+      <div class="who" id="menuWho"></div>
+      <button role="menuitem" data-act="library">Library</button>
+      <button role="menuitem" data-act="bookmarks">Bookmarks</button>
+      <button role="menuitem" data-act="settings">Settings &amp; Dark mode</button>
+      <button role="menuitem" data-act="data">Add / manage data</button>
+      <button role="menuitem" data-act="export">Export my data</button>
+      <button role="menuitem" data-act="install" id="installItem" hidden>Install app</button>
+      <button role="menuitem" data-act="clear">Clear search history</button>
+      <a role="menuitem" href="answers.html">Browse all answers</a>
+      <button role="menuitem" data-act="about">About MosCutoe</button>
+      <button role="menuitem" data-act="signout" id="signoutItem">Sign out</button>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="hero" id="hero" title="Home">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mosq"/></svg>
+      <div>
+        <div class="brand" role="heading" aria-level="1">Mos<b>Cutoe</b></div>
+        <p class="tagline">Search Beyond Limits</p>
+      </div>
+    </div>
+
+    <div class="searchwrap">
+      <form class="searchbar" id="searchForm" autocomplete="off" role="search">
+        <button type="button" class="iconbtn" id="plusBtn" title="Add new data" aria-label="Add new data">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <input id="q" type="text" placeholder="Search or ask a question..." aria-label="Search" enterkeyhint="search">
+        <button type="button" class="plain" id="clearBtn" title="Clear" aria-label="Clear"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button type="button" class="plain hide-s" id="camBtn" title="Image search" aria-label="Image search"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></button>
+        <button type="button" class="plain" id="micBtn" title="Voice search" aria-label="Voice search"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+        <button type="button" class="plain" id="aiBtn" title="AI Mood" aria-label="AI Mood"><svg viewBox="0 0 24 24"><path d="M10 4l1.8 5.2L17 11l-5.2 1.8L10 18l-1.8-5.2L3 11l5.2-1.8z"/><path d="M18 3v4M16 5h4"/></svg></button>
+        <button type="submit" class="iconbtn" title="Search" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      </form>
+      <ul class="suggest glass" id="suggest" hidden role="listbox"></ul>
+      <div class="chips" id="scopeChips">
+        <button type="button" class="chip" id="createImgChip">Create Image <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg></button>
+        <button type="button" class="chip" data-scope="local">Local Area <svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></button>
+        <button type="button" class="chip" data-scope="world">Worldwide <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></button>
+      </div>
+    </div>
+
+    <div class="quick" id="quick"></div>
+    <div class="homegrid" id="homegrid">
+      <section class="hpanel glass"><h2>Trending Searches</h2><ul id="trendList"></ul></section>
+      <section class="hpanel glass" id="feedPanel"><h2 id="feedTitle">Latest Answers</h2><div id="feedList"></div></section>
+    </div>
+
+    <nav class="tabs" id="tabs" hidden aria-label="Result types">
+      <button class="tab ai" data-tab="ai"><svg viewBox="0 0 24 24"><path d="M10 4l1.8 5.2L17 11l-5.2 1.8L10 18l-1.8-5.2L3 11l5.2-1.8z"/></svg> AI Mood</button>
+      <button class="tab on" data-tab="all">All</button>
+      <button class="tab" data-tab="image">Image</button>
+      <button class="tab" data-tab="video">Videos</button>
+      <button class="tab" data-tab="news">News</button>
+      <button class="tab saved" id="savedTab"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg> Saved</button>
+      <button class="tab more" id="moreTab">More <svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></g></svg></button>
+    </nav>
+
+    <div class="layout" id="layout" hidden>
+      <aside class="side glass" id="side">
+        <button class="sidebtn primary" data-side="new"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg> New Chat</button>
+        <button class="sidebtn" data-side="library"><svg viewBox="0 0 24 24"><path d="M5 4v16M10 4v16M15 5l4 15"/></svg> Library</button>
+        <button class="sidebtn" data-side="image"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg> Image</button>
+        <button class="sidebtn" data-side="more"><svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></g></svg> More</button>
+        <button class="sidebtn" data-side="history"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> History</button>
+      </aside>
+
+      <section class="content" id="content" aria-live="polite"></section>
+
+      <aside class="hist glass" id="hist">
+        <div class="hist-head"><h2>Search History</h2></div>
+        <ul id="histList"></ul>
+        <button class="undo" id="undoBtn">Undo Last Search <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <button type="button" data-info="contact">Contact Us</button>
+    <button type="button" data-info="privacy">Privacy Setting</button>
+    <button type="button" data-info="terms">Terms of Service</button>
+    <a href="answers.html">MosCutoe Search Project</a>
+  </footer>
+</div>
+
+<!-- dialogs -->
+<dialog id="dataDlg">
+  <h2 id="dlgTitle">Add new data</h2>
+  <form id="dataForm">
+    <input type="hidden" id="fId">
+    <label for="fQ">Question</label>
+    <input id="fQ" required maxlength="300" placeholder="e.g. Who is the Registrar of Varendra University?">
+    <label for="fA">Answer</label>
+    <textarea id="fA" required maxlength="3000" placeholder="Write the answer here"></textarea>
+    <div class="two">
+      <div><label for="fCat">Category</label>
+        <select id="fCat">
+          <option value="university">Varendra University (Local Area)</option>
+          <option value="cse">CSE Fundamentals</option>
+          <option value="programming">Programming</option>
+          <option value="dsa">Data Structures &amp; Algorithms</option>
+          <option value="math">Mathematics &amp; Digital Systems</option>
+          <option value="advanced">Advanced CS</option>
+        </select></div>
+      <div><label for="fAlt">Extra keywords (optional)</label><input id="fAlt" maxlength="200" placeholder="other words people may search"></div>
+    </div>
+    <label>Pictures (optional)</label>
+    <input id="fFiles" type="file" accept="image/*" multiple>
+    <div id="picRows"></div>
+    <div class="row">
+      <button type="submit" class="btn primary" id="saveBtn">Save</button>
+      <button type="button" class="btn" id="resetBtn">Clear form</button>
+      <button type="button" class="btn" id="closeBtn">Close</button>
+    </div>
+    <p class="hint">Your own data is saved in this device's browser. To make it permanent for everyone, copy the code and paste it in <b>data.js</b>.</p>
+  </form>
+  <div id="myList"></div>
+</dialog>
+
+<dialog id="voiceDlg" class="small">
+  <div class="dhead"><div class="dico"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><div><h2>Voice Search</h2><p>Speak naturally to search MosCutoe</p></div><button class="plain" id="voiceX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="vbody"><button class="bigmic" id="bigMic" aria-label="Start speaking"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><p id="voiceMsg">Tap the microphone to speak your query.</p>
+  <div class="try"><span>Or try saying:</span><div id="voiceTry"></div></div></div>
+</dialog>
+
+<dialog id="bmDlg" class="small">
+  <div class="dhead"><div class="dico"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></div><div><h2>Bookmarks &amp; Library</h2><p>Saved answers ready for instant recall</p></div><button class="plain" id="bmX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div id="bmList"></div>
+</dialog>
+
+<dialog id="setDlg" class="small">
+  <div class="dhead"><div class="dico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><div><h2>Settings</h2><p>Appearance and account</p></div><button class="plain" id="setX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <label class="switch"><span><b>Dark mode</b><small>Darker background for night time</small></span><input type="checkbox" id="darkSw"></label>
+  <label class="switch"><span><b>Auto-suggestions</b><small>Show suggestions while typing</small></span><input type="checkbox" id="sugSw" checked></label>
+  <div class="row"><button class="btn" id="setClear">Clear search history</button><button class="btn danger" id="setOut">Sign out</button></div>
+</dialog>
+
+<dialog id="infoDlg"><h2 id="infoTitle"></h2><div id="infoBody"></div><div class="row"><button class="btn primary" id="infoClose">OK</button></div></dialog>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-x" id="lbX" aria-label="Close">&times;</button>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-nav next" id="lbNext" aria-label="Next">&#8250;</button>
+</div>
+<div id="toast" role="status"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
