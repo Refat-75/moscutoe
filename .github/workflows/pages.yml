@@ -1,19 +1,15 @@
-name: Deploy MosCutoe
-
+name: Build and deploy MosCutoe
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: true
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,15 +21,28 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Build search pages and sitemap
+      - name: Build site (sitemap, answer pages)
         run: |
-          OWNER="${GITHUB_REPOSITORY_OWNER,,}"
-          REPO="${GITHUB_REPOSITORY#*/}"
-          node build.mjs "https://${OWNER}.github.io/${REPO}"
+          OWNER=$(echo "${{ github.repository_owner }}" | tr 'A-Z' 'a-z')
+          REPO="${{ github.event.repository.name }}"
+          if [ "$(echo "$REPO" | tr 'A-Z' 'a-z')" = "$OWNER.github.io" ]; then
+            URL="https://$OWNER.github.io"
+          else
+            URL="https://$OWNER.github.io/$REPO"
+          fi
+          echo "Site URL: $URL"
+          node build.mjs "$URL"
       - name: Collect site files
         run: |
           mkdir _site
-          cp -r index.html answers.html 404.html style.css app.js data.js sw.js manifest.webmanifest robots.txt sitemap.xml .nojekyll img answer _site/
+          for f in index.html answers.html 404.html style.css app.js data.js sw.js manifest.webmanifest robots.txt sitemap.xml; do
+            [ -f "$f" ] && cp "$f" _site/ || echo "missing file: $f"
+          done
+          for d in img answer video; do
+            [ -d "$d" ] && cp -r "$d" _site/ || echo "missing folder: $d"
+          done
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
