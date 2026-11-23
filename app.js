@@ -21,12 +21,12 @@
     const t = $('#toast'); t.textContent = msg; t.classList.add('show');
     clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
   }
-  const CATS = { university: 'Varendra University', cse: 'CSE Fundamentals', programming: 'Programming', dsa: 'Data Structures & Algorithms', math: 'Mathematics & Digital Systems', advanced: 'Advanced CS' };
+  const CATS = { university: 'Varendra University', cse: 'CSE Fundamentals', programming: 'Programming', dsa: 'Data Structures & Algorithms', math: 'Mathematics & Digital Systems', advanced: 'Advanced CS', local: 'Rajshahi & Varendra News', world: 'World News' };
 
   /* ---------- state ---------- */
   const BUILTIN = (window.MOSCUTOE_DB || []).slice();
   let ENTRIES = [], BYID = {};
-  const state = { user: null, custom: [], hist: [], q: '', results: [], view: 'home', tab: 'all', scope: '', chat: [], libCat: 'all', bm: [], sug: true };
+  const state = { incog: false, user: null, custom: [], hist: [], q: '', results: [], view: 'home', tab: 'all', scope: '', chat: [], libCat: 'all', bm: [], sug: true };
 
   function refreshEntries() {
     ENTRIES = BUILTIN.concat(state.custom);
@@ -103,8 +103,8 @@
     const qn = norm(q), out = [];
     for (let i = 0; i < ENTRIES.length; i++) {
       const e = ENTRIES[i];
-      if (scope === 'local' && e.cat !== 'university') continue;
-      if (scope === 'world' && e.cat === 'university') continue;
+      if (scope === 'local' && e.cat !== 'university' && e.cat !== 'local') continue;
+      if (scope === 'world' && (e.cat === 'university' || e.cat === 'local')) continue;
       const s = scoreEntry(qw, qn, e);
       if (s > 0) out.push({ e: e, s: s });
     }
@@ -128,17 +128,18 @@
   }
   function cardHtml(e, isBest) {
     return '<article class="card">' + singleHtml(e) + (isBest ? '<span class="badge">Best answer</span>' : '') +
-      '<h3>' + esc(e.q) + '</h3><p class="ans">' + esc(e.a) + '</p>' + peopleHtml(e) + videoHtml(e) +
+      '<h3>' + esc(e.q) + '</h3><p class="ans">' + esc(e.a) + '</p>' + peopleHtml(e) + videoHtml(e) + linkHtml(e) +
       '<div class="cardfoot"><span class="src">MosCutoe database · ' + esc(CATS[e.cat] || 'Other') + '</span>' +
       '<button class="savebtn' + (isSaved(e) ? ' on' : '') + '" data-save="' + esc(e.id) + '"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg><span>' + (isSaved(e) ? 'Saved' : 'Save') + '</span></button>' +
       '<button class="savebtn" data-copy="' + esc(e.id) + '"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span>Copy</span></button></div></article>';
   }
   function ytId(u) { const m = /(?:youtu\.be\/|v=|embed\/)([\w-]{11})/.exec(u || ''); return m ? m[1] : ''; }
+  function linkHtml(e) { return e.link ? '<a class="srclink" href="' + esc(e.link) + '" target="_blank" rel="noopener">Source: ' + esc(e.source || e.link) + ' &#8599;</a>' : ''; }
   function videoHtml(e) {
     if (!e.video) return '';
     const id = ytId(e.video);
     if (id) return '<a class="vid" href="' + esc(e.video) + '" target="_blank" rel="noopener"><img loading="lazy" src="https://img.youtube.com/vi/' + id + '/hqdefault.jpg" alt="' + esc(e.q) + '"><i></i></a>';
-    return '<video class="vidfile" controls preload="metadata" src="' + esc(e.video) + '"></video>';
+    return '<video class="vidfile" controls playsinline preload="metadata"' + (e.poster ? ' poster="' + esc(e.poster) + '"' : '') + ' src="' + esc(e.video) + '"></video>';
   }
   function isSaved(e) { return state.bm.indexOf(e.q) !== -1; }
   function saveBm() { store.set('mc_bm_' + state.user.uid, state.bm); }
@@ -184,8 +185,18 @@
     const list = found.length ? found : ENTRIES.filter(test);
     if (!list.length) return renderSoon(title);
     return '<div class="panel glass"><h2>' + (title === 'Videos' ? 'Videos &amp; Walkthroughs' : 'Campus &amp; Technology News') + '</h2><div class="media">' +
-      list.map(e => '<article class="mcard">' + videoHtml(e) + singleHtml(e) + (e.date ? '<small>' + esc(e.date) + '</small>' : '') + '<h3><a href="#" data-q="' + esc(e.q) + '">' + esc(e.q) + '</a></h3><p>' + esc(e.a.slice(0, 140)) + (e.a.length > 140 ? '...' : '') + '</p></article>').join('') + '</div></div>';
+      list.map(e => '<article class="mcard">' + videoHtml(e) + singleHtml(e) + (e.date ? '<small>' + esc(e.date) + '</small>' : '') + '<h3><a href="#" data-q="' + esc(e.q) + '">' + esc(e.q) + '</a></h3><p>' + esc(e.a.slice(0, 140)) + (e.a.length > 140 ? '...' : '') + '</p>' + linkHtml(e) + '</article>').join('') + '</div></div>';
   }
+  function renderRegion() {
+    const loc = state.scope === 'local';
+    const list = ENTRIES.filter(e => e.news && e.region === state.scope);
+    const head = loc ? ['Local Area', 'Rajshahi &amp; Varendra University'] : ['Worldwide', 'International news and technology'];
+    return '<div class="panel glass"><h2>' + head[0] + ' <small class="reg">' + head[1] + '</small></h2>' +
+      (list.length ? '<div class="media">' + list.map(e => '<article class="mcard">' + singleHtml(e) + (imagesOf(e).length > 1 ? '<img class="single" loading="lazy" src="' + esc(imagesOf(e)[1].src) + '" alt="' + esc(imagesOf(e)[1].name) + '" data-lb="' + esc(e.id) + '" data-i="1">' : '') +
+        (e.date ? '<small>' + esc(e.date) + '</small>' : '') + '<h3><a href="#" data-q="' + esc(e.q) + '">' + esc(e.q) + '</a></h3><p>' + esc(e.a) + '</p>' + linkHtml(e) + '</article>').join('') + '</div>' : '<div class="empty">No news here yet.</div>') +
+      '<p class="meta">Type something in the search box to search only ' + (loc ? 'Varendra University &amp; Rajshahi' : 'general and world') + ' answers.</p></div>';
+  }
+  function openRegion() { state.view = 'region'; state.q = ''; state.results = []; setMode(true); $('#tabs').hidden = true; $('#layout').hidden = false; render(); window.scrollTo(0, 0); }
   function renderLibrary() {
     const cats = ['all'].concat(Object.keys(CATS));
     const chips = '<div class="libfilter">' + cats.map(c => '<button class="chip' + (state.libCat === c ? ' on' : '') + '" data-cat="' + c + '">' + (c === 'all' ? 'All' : esc(CATS[c])) + '</button>').join('') + '</div>';
@@ -220,7 +231,8 @@
     const lib = state.view === 'lib';
     $$('.tab[data-tab]').forEach(t => t.classList.toggle('on', !lib && t.dataset.tab === state.tab));
     $$('.sidebtn[data-side]').forEach(b => b.classList.toggle('on', (b.dataset.side === 'library' && lib) || (b.dataset.side === 'image' && !lib && state.tab === 'image')));
-    if (lib) c.innerHTML = renderLibrary();
+    if (state.view === 'region') c.innerHTML = renderRegion();
+    else if (lib) c.innerHTML = renderLibrary();
     else if (state.tab === 'ai') { c.innerHTML = renderChat(); const ch = $('.chat', c); if (state.chat.length) ch.lastElementChild.scrollIntoView({ block: 'nearest' }); }
     else if (state.tab === 'image') c.innerHTML = renderImages();
     else if (state.tab === 'video') c.innerHTML = renderMedia('Videos', e => !!e.video);
@@ -291,6 +303,7 @@
   /* ---------- history ---------- */
   function saveHist() { store.set('mc_hist_' + state.user.uid, state.hist); }
   function pushHistory(q) {
+    if (state.incog) return;
     const h = state.hist;
     if (h.length && h[h.length - 1].q.toLowerCase() === q.toLowerCase()) h[h.length - 1].t = Date.now();
     else h.push({ q: q, t: Date.now() });
@@ -492,6 +505,9 @@
     else if (act === 'bookmarks') openBookmarks();
     else if (act === 'settings') openSettings();
     else if (act === 'export') exportData();
+    else if (act === 'download') downloadAnswers();
+    else if (act === 'history') openHistoryDlg();
+    else if (act === 'incog') toggleIncog();
     else if (act === 'install') doInstall();
     else if (act === 'clear') { state.hist = []; saveHist(); renderHistory(); toast('History cleared'); }
     else if (act === 'about') openInfo('about');
@@ -563,6 +579,27 @@
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, () => window.prompt('Copy this code:', txt));
     else window.prompt('Copy this code:', txt);
   }
+  function downloadAnswers() {
+    const list = state.results.length ? state.results.map(r => r.e) : ENTRIES;
+    const txt = 'MosCutoe - Search Beyond Limits\n' + (state.q ? 'Search: ' + state.q + '\n' : 'All answers\n') + '\n' +
+      list.map((e, i) => (i + 1) + '. ' + e.q + '\n' + e.a + (e.link ? '\nSource: ' + e.link : '') + '\n').join('\n');
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], { type: 'text/plain' }));
+    a.download = state.q ? 'moscutoe-' + norm(state.q).replace(/\s+/g, '-').slice(0, 30) + '.txt' : 'moscutoe-answers.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+    toast('Downloaded ' + list.length + ' answers');
+  }
+  function openHistoryDlg() {
+    const h = state.hist;
+    $('#histDlgList').innerHTML = h.length ? h.slice().reverse().map(x => '<div class="bmrow"><div data-q="' + esc(x.q) + '"><b>' + esc(x.q) + '</b><p>' + ago(x.t) + '</p></div></div>').join('') : '<p class="emptyline">No search history yet.</p>';
+    $('#histDlg').showModal();
+  }
+  function toggleIncog() {
+    state.incog = !state.incog;
+    document.body.classList.toggle('incog', state.incog);
+    $('#incogBar').hidden = !state.incog;
+    $('#incogItem').textContent = state.incog ? 'Exit Incognito tab' : 'New Incognito tab';
+    toast(state.incog ? 'Incognito on: searches are not saved in history' : 'Incognito off');
+  }
   function exportData() {
     const blob = new Blob([JSON.stringify(state.custom, null, 2)], { type: 'application/json' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'moscutoe-my-data.json';
@@ -613,6 +650,10 @@
     $('#voiceDlg').addEventListener('click', e => { const s = e.target.closest('[data-say]'); if (s) { $('#voiceDlg').close(); runSearch(s.dataset.say); } });
     $('#voiceX').onclick = () => $('#voiceDlg').close();
     $('#bmX').onclick = () => $('#bmDlg').close();
+    $('#histX').onclick = () => $('#histDlg').close();
+    $('#histClearBtn').onclick = () => { state.hist = []; saveHist(); renderHistory(); renderHome(); openHistoryDlg(); toast('History cleared'); };
+    $('#histDlg').addEventListener('click', e => { const a = e.target.closest('[data-q]'); if (a) { $('#histDlg').close(); runSearch(a.dataset.q); } });
+    $('#incogX').onclick = toggleIncog;
     $('#setX').onclick = () => $('#setDlg').close();
     $('#savedTab').onclick = openBookmarks;
     $('#bmDlg').addEventListener('click', e => {
@@ -635,8 +676,10 @@
       const s = b.dataset.scope;
       state.scope = state.scope === s ? '' : s;
       $$('[data-scope]').forEach(x => x.classList.toggle('on', x.dataset.scope === state.scope));
-      toast(state.scope === 'local' ? 'Showing Varendra University answers only' : state.scope === 'world' ? 'Showing general CS answers only' : 'Showing all answers');
+      toast(state.scope === 'local' ? 'Local Area: Rajshahi & Varendra University' : state.scope === 'world' ? 'Worldwide: general & international' : 'Showing all answers');
       if (state.q) runSearch(state.q, { noHistory: true, noChat: true });
+      else if (state.scope) openRegion();
+      else goHome();
     });
     $('#hero').onclick = goHome;
     document.addEventListener('keydown', e => {

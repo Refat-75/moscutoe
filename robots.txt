@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://refat-75.github.io/moscutoe/sitemap.xml

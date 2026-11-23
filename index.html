@@ -18,6 +18,10 @@
 <!-- Google Search Console "HTML tag" verification: paste the meta tag Google gives you on the next line -->
 
 <!-- seo:start -->
+<link rel="canonical" href="https://refat-75.github.io/moscutoe/">
+<meta property="og:url" content="https://refat-75.github.io/moscutoe/">
+<meta property="og:image" content="https://refat-75.github.io/moscutoe/img/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"MosCutoe","alternateName":"Mosquito The","url":"https://refat-75.github.io/moscutoe/","description":"A search engine built by Varendra University CSE students.","potentialAction":{"@type":"SearchAction","target":"https://refat-75.github.io/moscutoe/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <!-- seo:end -->
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
@@ -144,6 +148,9 @@
       <button role="menuitem" data-act="bookmarks">Bookmarks</button>
       <button role="menuitem" data-act="settings">Settings &amp; Dark mode</button>
       <button role="menuitem" data-act="data">Add / manage data</button>
+      <button role="menuitem" data-act="history">History</button>
+      <button role="menuitem" data-act="download">Download answers</button>
+      <button role="menuitem" data-act="incog" id="incogItem">New Incognito tab</button>
       <button role="menuitem" data-act="export">Export my data</button>
       <button role="menuitem" data-act="install" id="installItem" hidden>Install app</button>
       <button role="menuitem" data-act="clear">Clear search history</button>
@@ -270,12 +277,20 @@
   <div id="bmList"></div>
 </dialog>
 
+<dialog id="histDlg" class="small">
+  <div class="dhead"><div class="dico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h2>History</h2><p>Your recent searches on this device</p></div><button class="plain" id="histX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div id="histDlgList"></div>
+  <div class="row"><button class="btn" id="histClearBtn" type="button">Clear history</button></div>
+</dialog>
+
 <dialog id="setDlg" class="small">
   <div class="dhead"><div class="dico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></div><div><h2>Settings</h2><p>Appearance and account</p></div><button class="plain" id="setX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <label class="switch"><span><b>Dark mode</b><small>Darker background for night time</small></span><input type="checkbox" id="darkSw"></label>
   <label class="switch"><span><b>Auto-suggestions</b><small>Show suggestions while typing</small></span><input type="checkbox" id="sugSw" checked></label>
   <div class="row"><button class="btn" id="setClear">Clear search history</button><button class="btn danger" id="setOut">Sign out</button></div>
 </dialog>
+
+<div id="incogBar" class="incogbar" hidden><span>Incognito tab: your searches are not saved</span><button type="button" id="incogX">Exit</button></div>
 
 <dialog id="infoDlg"><h2 id="infoTitle"></h2><div id="infoBody"></div><div class="row"><button class="btn primary" id="infoClose">OK</button></div></dialog>
 
