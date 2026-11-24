@@ -1,20 +1,6 @@
 // =====================================================================
-// MosCutoe DATABASE  -  ekhane sob answer thake.
-// Notun data dite: niche list er sheshe ekta { ... }, joda dao (comma dao).
-//
-//  q      = proshno (question)                         [dorkar]
-//  a      = uttor (answer)                             [dorkar]
-//  cat    = university | cse | programming | dsa | math | advanced   [dorkar]
-//  alt    = onno shobdo jeta diye keu khujte pare      [optional]
-//  images = [ {src:'img/chobi.jpg', name:'Nam'} ]      [optional, chobi img/ folder e rakho]
-//  news   = true   -> Home page er "Feed" ar News tab e dekhabe        [optional]
-//  date   = '22 Nov 2026'  (news er tarikh)                            [optional]
-//  video  = 'https://www.youtube.com/watch?v=XXXX'  -> Videos tab e    [optional]
-//  region = 'local' | 'world'  -> Local Area / Worldwide news page   [optional]
-//  link / source = news source link and name                            [optional]
-//  poster = cover picture of a video file                               [optional]
-//
-// Data dewar por:  node build.mjs https://USER.github.io/REPO   (GitHub e upload korle auto hoye jabe)
+// AUTO-GENERATED: eta C++ program (cpp-backend) database.txt theke banaise.
+// Eta hate edit korba na. Notun data dite cpp-backend/database.txt e dao.
 // =====================================================================
 window.MOSCUTOE_DB = [
  {
@@ -23,18 +9,9 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "founders creator creators developer developers owner owners made built team moscutoe mosquito the moscuto mos cutoe who made",
   "images": [
-   {
-    "src": "img/refat.jpg",
-    "name": "Md Refat Hossain"
-   },
-   {
-    "src": "img/rijonty.jpg",
-    "name": "Rijonty Moitra"
-   },
-   {
-    "src": "img/shaon.jpg",
-    "name": "Iemam Hossain Shaon"
-   }
+   { "src": "img/refat.jpg", "name": "Md Refat Hossain" },
+   { "src": "img/rijonty.jpg", "name": "Rijonty Moitra" },
+   { "src": "img/shaon.jpg", "name": "Iemam Hossain Shaon" }
   ],
   "id": "b1",
   "video": "video/moscutoe-reel.mp4",
@@ -45,13 +22,10 @@ window.MOSCUTOE_DB = [
   "a": "MosCutoe (Mosquito The) is a search engine built by three Computer Science and Engineering students of Varendra University as their Data Structure Lab project (CSE 2103). Its tagline is \"Search Beyond Limits\".",
   "cat": "university",
   "alt": "about moscutoe mosquito the moscuto search engine project",
-  "id": "b2",
   "images": [
-   {
-    "src": "img/og-image.jpg",
-    "name": "MosCutoe logo"
-   }
-  ]
+   { "src": "img/og-image.jpg", "name": "MosCutoe logo" }
+  ],
+  "id": "b2"
  },
  {
   "q": "Who is the Chairman, Board of Trustees of Varendra University?",
@@ -59,14 +33,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "chairman board of trustees trustee hafizur rahman khan head of trustees varendra",
   "images": [
-   {
-    "src": "img/vu-aerial.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u1-1.jpg",
-    "name": "Board of Trustees"
-   }
+   { "src": "img/vu-aerial.jpg", "name": "Varendra University campus" },
+   { "src": "img/u1-1.jpg", "name": "Board of Trustees" }
   ],
   "id": "u1"
  },
@@ -76,18 +44,9 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "vc vice chancellor khademul islam molla vice-chancellor head of varendra university",
   "images": [
-   {
-    "src": "img/vu-gate.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u2-1.jpg",
-    "name": "Vice Chancellor"
-   },
-   {
-    "src": "img/u2-2.jpg",
-    "name": "Varendra University"
-   }
+   { "src": "img/vu-gate.jpg", "name": "Varendra University campus" },
+   { "src": "img/u2-1.jpg", "name": "Vice Chancellor" },
+   { "src": "img/u2-2.jpg", "name": "Varendra University" }
   ],
   "id": "u2"
  },
@@ -97,14 +56,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "pro vc pro-vice-chancellor provc ananda kumar saha",
   "images": [
-   {
-    "src": "img/vu-aerial-logo.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u3-1.jpg",
-    "name": "Pro Vice Chancellor"
-   }
+   { "src": "img/vu-aerial-logo.jpg", "name": "Varendra University campus" },
+   { "src": "img/u3-1.jpg", "name": "Pro Vice Chancellor" }
   ],
   "id": "u3"
  },
@@ -114,14 +67,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "ed executive director shamim ahsan parvez",
   "images": [
-   {
-    "src": "img/vu-render.jpg",
-    "name": "Varendra University campus design"
-   },
-   {
-    "src": "img/u4-1.jpg",
-    "name": "Executive Director"
-   }
+   { "src": "img/vu-render.jpg", "name": "Varendra University campus design" },
+   { "src": "img/u4-1.jpg", "name": "Executive Director" }
   ],
   "id": "u4"
  },
@@ -131,14 +78,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "number of schools faculties how many school count varendra",
   "images": [
-   {
-    "src": "img/vu-aerial.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u5-1.jpg",
-    "name": "4 Schools"
-   }
+   { "src": "img/vu-aerial.jpg", "name": "Varendra University campus" },
+   { "src": "img/u5-1.jpg", "name": "4 Schools" }
   ],
   "id": "u5"
  },
@@ -148,14 +89,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "school names list faculties arts social science business law engineering science technology",
   "images": [
-   {
-    "src": "img/vu-gate.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u6-1.jpg",
-    "name": "Schools of Varendra University"
-   }
+   { "src": "img/vu-gate.jpg", "name": "Varendra University campus" },
+   { "src": "img/u6-1.jpg", "name": "Schools of Varendra University" }
   ],
   "id": "u6"
  },
@@ -165,14 +100,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "number of departments how many department count dept",
   "images": [
-   {
-    "src": "img/vu-aerial-logo.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u7-1.jpg",
-    "name": "13 Departments"
-   }
+   { "src": "img/vu-aerial-logo.jpg", "name": "Varendra University campus" },
+   { "src": "img/u7-1.jpg", "name": "13 Departments" }
   ],
   "id": "u7"
  },
@@ -182,18 +111,9 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "department names list dept bba cse eee english law pharmacy sociology journalism public health economics political science",
   "images": [
-   {
-    "src": "img/vu-render.jpg",
-    "name": "Varendra University campus design"
-   },
-   {
-    "src": "img/u8-1.jpg",
-    "name": "Departments"
-   },
-   {
-    "src": "img/u8-2.jpg",
-    "name": "13 Departments"
-   }
+   { "src": "img/vu-render.jpg", "name": "Varendra University campus design" },
+   { "src": "img/u8-1.jpg", "name": "Departments" },
+   { "src": "img/u8-2.jpg", "name": "13 Departments" }
   ],
   "id": "u8"
  },
@@ -203,18 +123,9 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "hod head of department cse head chairman cse department shamim ahmad",
   "images": [
-   {
-    "src": "img/vu-aerial.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u9-1.jpg",
-    "name": "Head of CSE"
-   },
-   {
-    "src": "img/u9-2.jpg",
-    "name": "Department of CSE"
-   }
+   { "src": "img/vu-aerial.jpg", "name": "Varendra University campus" },
+   { "src": "img/u9-1.jpg", "name": "Head of CSE" },
+   { "src": "img/u9-2.jpg", "name": "Department of CSE" }
   ],
   "id": "u9"
  },
@@ -224,14 +135,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "teachers teacher count number of teachers faculty members cse adjunct internal 72",
   "images": [
-   {
-    "src": "img/vu-gate.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u10-1.jpg",
-    "name": "72 Faculty Members"
-   }
+   { "src": "img/vu-gate.jpg", "name": "Varendra University campus" },
+   { "src": "img/u10-1.jpg", "name": "72 Faculty Members" }
   ],
   "id": "u10"
  },
@@ -241,14 +146,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "37th batch 3rd semester third semester courses subjects syllabus cse oop data structures dsd differential equations engineering economics",
   "images": [
-   {
-    "src": "img/vu-aerial-logo.jpg",
-    "name": "Varendra University campus"
-   },
-   {
-    "src": "img/u11-1.jpg",
-    "name": "37th Batch · 3rd Semester"
-   }
+   { "src": "img/vu-aerial-logo.jpg", "name": "Varendra University campus" },
+   { "src": "img/u11-1.jpg", "name": "37th Batch · 3rd Semester" }
   ],
   "id": "u11"
  },
@@ -258,14 +157,8 @@ window.MOSCUTOE_DB = [
   "cat": "university",
   "alt": "section g teachers 3rd semester faculty barisha chowdhury nour noby afroza islam israt jahan rinky zannatul mifta jannatul ferdous sraboni mostofa rabeya khatun",
   "images": [
-   {
-    "src": "img/vu-render.jpg",
-    "name": "Varendra University campus design"
-   },
-   {
-    "src": "img/u12-1.jpg",
-    "name": "Section G · 3rd Semester"
-   }
+   { "src": "img/vu-render.jpg", "name": "Varendra University campus design" },
+   { "src": "img/u12-1.jpg", "name": "Section G · 3rd Semester" }
   ],
   "id": "u12"
  },
@@ -275,10 +168,7 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "cs computer science meaning definition",
   "images": [
-   {
-    "src": "img/c1-1.jpg",
-    "name": "Computer Science"
-   }
+   { "src": "img/c1-1.jpg", "name": "Computer Science" }
   ],
   "id": "c1"
  },
@@ -288,14 +178,8 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "ce computer engineering meaning definition hardware",
   "images": [
-   {
-    "src": "img/real-oldboard.jpg",
-    "name": "Early computer circuit board"
-   },
-   {
-    "src": "img/c2-1.jpg",
-    "name": "Computer Engineering"
-   }
+   { "src": "img/real-oldboard.jpg", "name": "Early computer circuit board" },
+   { "src": "img/c2-1.jpg", "name": "Computer Engineering" }
   ],
   "id": "c2"
  },
@@ -305,14 +189,8 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "cse meaning definition what is cse subject career",
   "images": [
-   {
-    "src": "img/c3-1.jpg",
-    "name": "CSE"
-   },
-   {
-    "src": "img/c3-2.jpg",
-    "name": "What CSE teaches"
-   }
+   { "src": "img/c3-1.jpg", "name": "CSE" },
+   { "src": "img/c3-2.jpg", "name": "What CSE teaches" }
   ],
   "id": "c3"
  },
@@ -322,14 +200,8 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "hardware vs software difference compare physical programs",
   "images": [
-   {
-    "src": "img/real-pcparts.jpg",
-    "name": "Hardware: motherboard, CPU, RAM, graphics card"
-   },
-   {
-    "src": "img/c4-1.jpg",
-    "name": "Hardware vs Software"
-   }
+   { "src": "img/real-pcparts.jpg", "name": "Hardware: motherboard, CPU, RAM, graphics card" },
+   { "src": "img/c4-1.jpg", "name": "Hardware vs Software" }
   ],
   "id": "c4"
  },
@@ -339,14 +211,8 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "computer system meaning input process output",
   "images": [
-   {
-    "src": "img/real-sysunit.jpg",
-    "name": "Parts of a computer system unit"
-   },
-   {
-    "src": "img/c5-1.jpg",
-    "name": "Computer System"
-   }
+   { "src": "img/real-sysunit.jpg", "name": "Parts of a computer system unit" },
+   { "src": "img/c5-1.jpg", "name": "Computer System" }
   ],
   "id": "c5"
  },
@@ -356,14 +222,8 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "generation generations of computer first second third fourth fifth vacuum tube transistor ic microprocessor history",
   "images": [
-   {
-    "src": "img/real-gens1.jpg",
-    "name": "Generations of computers"
-   },
-   {
-    "src": "img/c6-1.jpg",
-    "name": "Generations of Computers"
-   }
+   { "src": "img/real-gens1.jpg", "name": "Generations of computers" },
+   { "src": "img/c6-1.jpg", "name": "Generations of Computers" }
   ],
   "id": "c6"
  },
@@ -373,10 +233,7 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "types of computers kinds supercomputer mainframe minicomputer microcomputer embedded classification",
   "images": [
-   {
-    "src": "img/c7-1.jpg",
-    "name": "Types of Computers"
-   }
+   { "src": "img/c7-1.jpg", "name": "Types of Computers" }
   ],
   "id": "c7"
  },
@@ -386,18 +243,9 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "components parts of computer cpu ram storage ssd hdd motherboard input output devices power supply",
   "images": [
-   {
-    "src": "img/real-mb-comp.jpg",
-    "name": "Motherboard components"
-   },
-   {
-    "src": "img/real-mb-parts.jpg",
-    "name": "Parts of a motherboard"
-   },
-   {
-    "src": "img/real-pcparts.jpg",
-    "name": "Computer parts: motherboard, CPU, RAM, GPU, cooler"
-   }
+   { "src": "img/real-mb-comp.jpg", "name": "Motherboard components" },
+   { "src": "img/real-mb-parts.jpg", "name": "Parts of a motherboard" },
+   { "src": "img/real-pcparts.jpg", "name": "Computer parts: motherboard, CPU, RAM, GPU, cooler" }
   ],
   "id": "c8"
  },
@@ -407,10 +255,7 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "os operating system windows linux macos android meaning",
   "images": [
-   {
-    "src": "img/c9-1.jpg",
-    "name": "Operating System"
-   }
+   { "src": "img/c9-1.jpg", "name": "Operating System" }
   ],
   "id": "c9"
  },
@@ -420,14 +265,8 @@ window.MOSCUTOE_DB = [
   "cat": "cse",
   "alt": "network lan man wan networking internet meaning",
   "images": [
-   {
-    "src": "img/real-network.jpg",
-    "name": "PAN, LAN, MAN and WAN networks"
-   },
-   {
-    "src": "img/c10-1.jpg",
-    "name": "Computer Network"
-   }
+   { "src": "img/real-network.jpg", "name": "PAN, LAN, MAN and WAN networks" },
+   { "src": "img/c10-1.jpg", "name": "Computer Network" }
   ],
   "id": "c10"
  },
@@ -437,10 +276,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "programming coding code meaning definition",
   "images": [
-   {
-    "src": "img/p1-1.jpg",
-    "name": "Programming"
-   }
+   { "src": "img/p1-1.jpg", "name": "Programming" }
   ],
   "id": "p1"
  },
@@ -450,10 +286,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "algorithm meaning definition steps logic",
   "images": [
-   {
-    "src": "img/p2-1.jpg",
-    "name": "Algorithm"
-   }
+   { "src": "img/p2-1.jpg", "name": "Algorithm" }
   ],
   "id": "p2"
  },
@@ -463,10 +296,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "flowchart flow chart symbols oval rectangle parallelogram diamond arrow diagram",
   "images": [
-   {
-    "src": "img/p3-1.jpg",
-    "name": "Flowchart Symbols"
-   }
+   { "src": "img/p3-1.jpg", "name": "Flowchart Symbols" }
   ],
   "id": "p3"
  },
@@ -476,10 +306,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "c language c programming dennis ritchie bell labs procedural",
   "images": [
-   {
-    "src": "img/p4-1.jpg",
-    "name": "C"
-   }
+   { "src": "img/p4-1.jpg", "name": "C" }
   ],
   "id": "p4"
  },
@@ -489,10 +316,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "cpp c++ language bjarne stroustrup object oriented",
   "images": [
-   {
-    "src": "img/p5-1.jpg",
-    "name": "C++"
-   }
+   { "src": "img/p5-1.jpg", "name": "C++" }
   ],
   "id": "p5"
  },
@@ -502,10 +326,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "java language jvm sun microsystems platform independent",
   "images": [
-   {
-    "src": "img/p6-1.jpg",
-    "name": "Java"
-   }
+   { "src": "img/p6-1.jpg", "name": "Java" }
   ],
   "id": "p6"
  },
@@ -515,10 +336,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "python language ai machine learning data science interpreted",
   "images": [
-   {
-    "src": "img/p7-1.jpg",
-    "name": "Python"
-   }
+   { "src": "img/p7-1.jpg", "name": "Python" }
   ],
   "id": "p7"
  },
@@ -528,10 +346,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "compiler interpreter difference compile translate runtime",
   "images": [
-   {
-    "src": "img/p8-1.jpg",
-    "name": "Compiler vs Interpreter"
-   }
+   { "src": "img/p8-1.jpg", "name": "Compiler vs Interpreter" }
   ],
   "id": "p8"
  },
@@ -541,10 +356,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "oop object oriented programming encapsulation inheritance polymorphism abstraction class object",
   "images": [
-   {
-    "src": "img/p9-1.jpg",
-    "name": "OOP: 4 Pillars"
-   }
+   { "src": "img/p9-1.jpg", "name": "OOP: 4 Pillars" }
   ],
   "id": "p9"
  },
@@ -554,10 +366,7 @@ window.MOSCUTOE_DB = [
   "cat": "programming",
   "alt": "competitive programming cp codeforces leetcode atcoder hackerrank contest problem solving",
   "images": [
-   {
-    "src": "img/p10-1.jpg",
-    "name": "Competitive Programming"
-   }
+   { "src": "img/p10-1.jpg", "name": "Competitive Programming" }
   ],
   "id": "p10"
  },
@@ -567,10 +376,7 @@ window.MOSCUTOE_DB = [
   "cat": "dsa",
   "alt": "data structure ds meaning definition types",
   "images": [
-   {
-    "src": "img/d1-1.jpg",
-    "name": "Data Structures"
-   }
+   { "src": "img/d1-1.jpg", "name": "Data Structures" }
   ],
   "id": "d1"
  },
@@ -580,10 +386,7 @@ window.MOSCUTOE_DB = [
   "cat": "dsa",
   "alt": "array index contiguous memory static array element",
   "images": [
-   {
-    "src": "img/d2-1.jpg",
-    "name": "Array"
-   }
+   { "src": "img/d2-1.jpg", "name": "Array" }
   ],
   "id": "d2"
  },
@@ -593,10 +396,7 @@ window.MOSCUTOE_DB = [
   "cat": "dsa",
   "alt": "linked list node singly doubly circular pointer",
   "images": [
-   {
-    "src": "img/d3-1.jpg",
-    "name": "Linked List"
-   }
+   { "src": "img/d3-1.jpg", "name": "Linked List" }
   ],
   "id": "d3"
  },
@@ -606,10 +406,7 @@ window.MOSCUTOE_DB = [
   "cat": "dsa",
   "alt": "stack lifo last in first out push pop peek undo",
   "images": [
-   {
-    "src": "img/d4-1.jpg",
-    "name": "Stack (LIFO)"
-   }
+   { "src": "img/d4-1.jpg", "name": "Stack (LIFO)" }
   ],
   "id": "d4"
  },
@@ -619,10 +416,7 @@ window.MOSCUTOE_DB = [
   "cat": "dsa",
   "alt": "queue fifo first in first out enqueue dequeue front rear",
   "images": [
-   {
-    "src": "img/d5-1.jpg",
-    "name": "Queue (FIFO)"
-   }
+   { "src": "img/d5-1.jpg", "name": "Queue (FIFO)" }
   ],
   "id": "d5"
  },
@@ -632,21 +426,15 @@ window.MOSCUTOE_DB = [
   "cat": "local",
   "alt": "varendra university rajshahi news campus established 2012 address chandrima paba bypass road about",
   "images": [
-   {
-    "src": "img/vu-aerial-logo.jpg",
-    "name": "Varendra University, Rajshahi"
-   },
-   {
-    "src": "img/vu-gate.jpg",
-    "name": "Varendra University main entrance"
-   }
+   { "src": "img/vu-aerial-logo.jpg", "name": "Varendra University, Rajshahi" },
+   { "src": "img/vu-gate.jpg", "name": "Varendra University main entrance" }
   ],
+  "id": "n1",
   "news": true,
   "region": "local",
   "date": "University profile",
   "link": "https://vu.edu.bd/the-university/at-a-glance",
-  "source": "Varendra University (official website)",
-  "id": "n1"
+  "source": "Varendra University (official website)"
  },
  {
   "q": "Varendra Research Museum, Bangladesh's oldest museum, has a space and funding problem",
@@ -654,21 +442,15 @@ window.MOSCUTOE_DB = [
   "cat": "local",
   "alt": "varendra research museum rajshahi oldest museum bangladesh history funding news",
   "images": [
-   {
-    "src": "img/n2-1.jpg",
-    "name": "Varendra Research Museum"
-   },
-   {
-    "src": "img/n2-2.jpg",
-    "name": "116-year history"
-   }
+   { "src": "img/n2-1.jpg", "name": "Varendra Research Museum" },
+   { "src": "img/n2-2.jpg", "name": "116-year history" }
   ],
+  "id": "n2",
   "news": true,
   "region": "local",
   "date": "The Business Standard",
   "link": "https://www.tbsnews.net/taxonomy/term/1091",
-  "source": "The Business Standard (Rajshahi news)",
-  "id": "n2"
+  "source": "The Business Standard (Rajshahi news)"
  },
  {
   "q": "HSC pass rate in the Rajshahi education board is 45.06%",
@@ -676,17 +458,14 @@ window.MOSCUTOE_DB = [
   "cat": "local",
   "alt": "rajshahi board hsc result pass rate education board news 2026",
   "images": [
-   {
-    "src": "img/n3-1.jpg",
-    "name": "Rajshahi Board · HSC"
-   }
+   { "src": "img/n3-1.jpg", "name": "Rajshahi Board · HSC" }
   ],
+  "id": "n3",
   "news": true,
   "region": "local",
   "date": "The Business Standard",
   "link": "https://www.tbsnews.net/taxonomy/term/1091",
-  "source": "The Business Standard (Rajshahi news)",
-  "id": "n3"
+  "source": "The Business Standard (Rajshahi news)"
  },
  {
   "q": "Rajshahi city: the Silk City on the bank of the Padma river",
@@ -694,19 +473,13 @@ window.MOSCUTOE_DB = [
   "cat": "local",
   "alt": "rajshahi city silk city padma river mango north bangladesh division about local area",
   "images": [
-   {
-    "src": "img/n4-1.jpg",
-    "name": "Rajshahi"
-   },
-   {
-    "src": "img/n4-2.jpg",
-    "name": "Rajshahi Division"
-   }
+   { "src": "img/n4-1.jpg", "name": "Rajshahi" },
+   { "src": "img/n4-2.jpg", "name": "Rajshahi Division" }
   ],
+  "id": "n4",
   "news": true,
   "region": "local",
-  "date": "About Rajshahi",
-  "id": "n4"
+  "date": "About Rajshahi"
  },
  {
   "q": "Scientists turn back cells' clocks without turning them into stem cells",
@@ -714,21 +487,15 @@ window.MOSCUTOE_DB = [
   "cat": "world",
   "alt": "world news science de-aging cells biology research reprogramming aging international",
   "images": [
-   {
-    "src": "img/w1-1.jpg",
-    "name": "Cell de-aging research"
-   },
-   {
-    "src": "img/w1-2.jpg",
-    "name": "World · Science"
-   }
+   { "src": "img/w1-1.jpg", "name": "Cell de-aging research" },
+   { "src": "img/w1-2.jpg", "name": "World · Science" }
   ],
+  "id": "w1",
   "news": true,
   "region": "world",
   "date": "Tech roundup, 14 Nov 2026",
   "link": "https://singularityhub.com/2026/11/14/this-weeks-awesome-tech-stories-from-around-the-web-through-november-14-2/",
-  "source": "Singularity Hub weekly roundup (story from Wired)",
-  "id": "w1"
+  "source": "Singularity Hub weekly roundup (story from Wired)"
  },
  {
   "q": "Is AI taking white-collar jobs? The latest US numbers say not yet",
@@ -736,21 +503,15 @@ window.MOSCUTOE_DB = [
   "cat": "world",
   "alt": "world news ai jobs employment economy white collar international",
   "images": [
-   {
-    "src": "img/w2-1.jpg",
-    "name": "AI and jobs"
-   },
-   {
-    "src": "img/w2-2.jpg",
-    "name": "World · Economy"
-   }
+   { "src": "img/w2-1.jpg", "name": "AI and jobs" },
+   { "src": "img/w2-2.jpg", "name": "World · Economy" }
   ],
+  "id": "w2",
   "news": true,
   "region": "world",
   "date": "Tech roundup, 14 Nov 2026",
   "link": "https://singularityhub.com/2026/11/14/this-weeks-awesome-tech-stories-from-around-the-web-through-november-14-2/",
-  "source": "Singularity Hub weekly roundup (story from The Wall Street Journal)",
-  "id": "w2"
+  "source": "Singularity Hub weekly roundup (story from The Wall Street Journal)"
  },
  {
   "q": "Voters rejected data centers, but many will be built anyway",
@@ -758,21 +519,15 @@ window.MOSCUTOE_DB = [
   "cat": "world",
   "alt": "world news data centers ai infrastructure united states international",
   "images": [
-   {
-    "src": "img/w3-1.jpg",
-    "name": "Data centers"
-   },
-   {
-    "src": "img/w3-2.jpg",
-    "name": "World · Technology"
-   }
+   { "src": "img/w3-1.jpg", "name": "Data centers" },
+   { "src": "img/w3-2.jpg", "name": "World · Technology" }
   ],
+  "id": "w3",
   "news": true,
   "region": "world",
   "date": "Tech roundup, 14 Nov 2026",
   "link": "https://singularityhub.com/2026/11/14/this-weeks-awesome-tech-stories-from-around-the-web-through-november-14-2/",
-  "source": "Singularity Hub weekly roundup (story from The New York Times)",
-  "id": "w3"
+  "source": "Singularity Hub weekly roundup (story from The New York Times)"
  },
  {
   "q": "Cybersecurity experts: AI makes hacking faster, not fundamentally new",
@@ -780,20 +535,14 @@ window.MOSCUTOE_DB = [
   "cat": "world",
   "alt": "world news cybersecurity ai hacking security international",
   "images": [
-   {
-    "src": "img/w4-1.jpg",
-    "name": "AI and cybersecurity"
-   },
-   {
-    "src": "img/w4-2.jpg",
-    "name": "World · Security"
-   }
+   { "src": "img/w4-1.jpg", "name": "AI and cybersecurity" },
+   { "src": "img/w4-2.jpg", "name": "World · Security" }
   ],
+  "id": "w4",
   "news": true,
   "region": "world",
   "date": "Tech roundup, 14 Nov 2026",
   "link": "https://singularityhub.com/2026/11/14/this-weeks-awesome-tech-stories-from-around-the-web-through-november-14-2/",
-  "source": "Singularity Hub weekly roundup (story from Fast Company)",
-  "id": "w4"
+  "source": "Singularity Hub weekly roundup (story from Fast Company)"
  }
 ];
