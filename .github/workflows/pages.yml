@@ -1,4 +1,4 @@
-name: Build and deploy MosCutoe
+name: Build and deploy MosCutoe (C++ backend)
 on:
   push:
     branches: [main, master]
@@ -18,10 +18,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Build site (sitemap, answer pages)
+      - name: Compile the C++ backend
+        run: g++ -std=c++17 -O2 cpp-backend/main.cpp -o moscutoe
+      - name: Run C++ backend (database.txt -> data.js, answer pages, sitemap)
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr 'A-Z' 'a-z')
           REPO="${{ github.event.repository.name }}"
@@ -31,7 +30,7 @@ jobs:
             URL="https://$OWNER.github.io/$REPO"
           fi
           echo "Site URL: $URL"
-          node build.mjs "$URL"
+          ./moscutoe build "$URL"
       - name: Collect site files
         run: |
           mkdir _site
